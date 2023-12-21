@@ -2,23 +2,28 @@ namespace SortAlgorithmsProject.SortAlgorithm;
 
 public class SelectionSort : ISortAlgorithm
 {
-    public int[] Sort(int[] tab)
+    public int[] Sort(int[] array)
     {
-        uint k;
-        for (uint i = 0; i < (tab.Length - 1); i++)
+        int k;
+        for (int i = 0; i < (array.Length - 1); i++)
         {
-            int Buf = tab[i]; // bierzemy i-ty element
+            int Buf = array[i]; // bierzemy i-ty element
             k = i; // i jego indeks
-            for (uint j = i + 1; j < tab.Length; j++)
-                if (tab[j] < Buf) // szukamy najmniejszego z prawej
+            for (int j = i + 1; j < array.Length; j++)
+                if (array[j] < Buf) // szukamy najmniejszego z prawej
                 {
                     k = j;
-                    Buf = tab[j];
+                    Buf = array[j];
                 }
-            tab[k] = tab[i]; // zamieniamy i-ty z k-tym
-            tab[i] = Buf;
+            array[k] = array[i]; // zamieniamy i-ty z k-tym
+            array[i] = Buf;
         }
 
-        return tab;
+        return array;
+    }
+
+    public string GetName()
+    {
+        return "Selection sort";
     }
 }
