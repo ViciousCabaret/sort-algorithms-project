@@ -5,12 +5,14 @@ public class SortingAlgorithmTimeComplexityResult
     private TimeSpan _timeComplexity;
     private string _algorithm;
     private int _arraySize;
+    private string _arrayType;
     
-    public SortingAlgorithmTimeComplexityResult(TimeSpan timeComplexity, string algorithm, int arraySize)
+    public SortingAlgorithmTimeComplexityResult(TimeSpan timeComplexity, string algorithm, string arrayType, int arraySize)
     {
         _timeComplexity = timeComplexity;
         _algorithm = algorithm;
         _arraySize = arraySize;
+        _arrayType = arrayType;
     }
     
     public string FormatResult()
@@ -19,6 +21,7 @@ public class SortingAlgorithmTimeComplexityResult
             _timeComplexity.Hours, _timeComplexity.Minutes, _timeComplexity.Seconds,
             _timeComplexity.Milliseconds / 10);
 
-        return "[" +_arraySize + "]" + " Time complexity result: " + elapsedTime + " for sorting algorithm: " + _algorithm;
+        return
+            $"[{_arrayType} array of {_arraySize} elements] Time complexity result: {elapsedTime} for sorting algorithm: {_algorithm}";
     }
 }

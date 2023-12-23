@@ -6,14 +6,19 @@ public class DecreasingArrayGenerator : AbstractArrayGenerator, IArrayGenerator
     {
     }
 
-    public int[] Generate()
+    public GeneratedArray Generate()
     {
         int[] array = new int[ArraySize];
         for (int i = 0; i < ArraySize - 1; i ++)
         {
             array[i] = ArraySize - i;
         }
-
-        return array;
+        
+        return CreateGeneratedArray(array);
+    }
+    
+    protected override string GetArrayType()
+    {
+        return "Decreasing";
     }
 }

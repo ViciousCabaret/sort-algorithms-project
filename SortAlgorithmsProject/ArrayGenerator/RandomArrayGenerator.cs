@@ -6,7 +6,7 @@ public class RandomArrayGenerator : AbstractArrayGenerator, IArrayGenerator
     {
     }
 
-    public int[] Generate()
+    public GeneratedArray Generate()
     {
         int[] array = new int[ArraySize];
         for (int i = 0; i < ArraySize; i++)
@@ -14,6 +14,11 @@ public class RandomArrayGenerator : AbstractArrayGenerator, IArrayGenerator
             int value = new Random().Next(0, ArraySize);
             array[i] = value;
         }
-        return array;
+        return CreateGeneratedArray(array);
+    }
+
+    protected override string GetArrayType()
+    {
+        return "Random array";
     }
 }

@@ -6,9 +6,9 @@ public class VShapedArrayGenerator : AbstractArrayGenerator, IArrayGenerator
     {
     }
 
-    public int[] Generate()
+    public GeneratedArray Generate()
     {
-        int[] decreasingArray = new DecreasingArrayGenerator(ArraySize).Generate();
+        int[] decreasingArray = new DecreasingArrayGenerator(ArraySize).Generate().Values;
         int[] vShapedArray = new int[ArraySize];
         
         int counter = 0;
@@ -25,6 +25,11 @@ public class VShapedArrayGenerator : AbstractArrayGenerator, IArrayGenerator
             }
         }
 
-        return vShapedArray;
+        return CreateGeneratedArray(vShapedArray);
+    }
+
+    protected override string GetArrayType()
+    {
+        return "V-Shaped array";
     }
 }

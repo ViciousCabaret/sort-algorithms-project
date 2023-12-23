@@ -6,7 +6,7 @@ public class ConstantArrayGenerator : AbstractArrayGenerator, IArrayGenerator
     {
     }
 
-    public int[] Generate()
+    public GeneratedArray Generate()
     {
         int value = new Random().Next(0, ArraySize);
         int[] array = new int[ArraySize];
@@ -14,6 +14,12 @@ public class ConstantArrayGenerator : AbstractArrayGenerator, IArrayGenerator
         {
             array[i] = value;
         }
-        return array;
+
+        return CreateGeneratedArray(array);
+    }
+
+    protected override string GetArrayType()
+    {
+        return "Constant";
     }
 }
