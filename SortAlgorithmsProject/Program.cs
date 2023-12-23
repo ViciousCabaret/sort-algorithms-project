@@ -1,14 +1,11 @@
 ﻿using SortAlgorithmsProject;
 using SortAlgorithmsProject.ArrayGenerator;
 using SortAlgorithmsProject.SortAlgorithm;
-// selection sort, insertion sort, bubble sort
 public class Program
 {
-    private const int MILION = 1000000;
-    private const int CALCULATION_STEP = 100000;
+    private const int CALCULATION_STEP = 50000;
     public static void Main()
     {
-        // List<SortingAlgorithmTimeComplexityResult> results = new List<SortingAlgorithmTimeComplexityResult>();
         List<ISortAlgorithm> sortAlgorithms = new List<ISortAlgorithm>();
         List<SortingAlgorithmTimeComplexityResult> results = new List<SortingAlgorithmTimeComplexityResult>();
         
@@ -16,7 +13,7 @@ public class Program
         sortAlgorithms.Add(new SelectionSort());
         sortAlgorithms.Add(new BubbleSort());
         
-        for (int i = 400000; i <= MILION; i += CALCULATION_STEP)
+        for (int i = CALCULATION_STEP; i <= 300000; i += CALCULATION_STEP)
         {
             Console.WriteLine($"Calculation for {i} elements in array");
             sortAlgorithms.ForEach((sortAlgorithm) =>
@@ -60,4 +57,5 @@ public class Program
             Console.WriteLine(result.FormatResult());
         }
     }
+
 }

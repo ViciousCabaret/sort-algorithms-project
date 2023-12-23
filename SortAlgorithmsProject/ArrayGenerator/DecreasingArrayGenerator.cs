@@ -9,7 +9,7 @@ public class DecreasingArrayGenerator : AbstractArrayGenerator, IArrayGenerator
     public GeneratedArray Generate()
     {
         int[] array = new int[ArraySize];
-        for (int i = 0; i < ArraySize - 1; i ++)
+        for (int i = 0; i < ArraySize; i ++)
         {
             array[i] = ArraySize - i;
         }
